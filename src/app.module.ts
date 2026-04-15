@@ -8,6 +8,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { ProductsModule } from './modules/products/products.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { RequestLoggerMiddleware } from './common/middleware/request-logger.middleware';
+import { ReviewsModule } from './modules/reviews/reviews.module';
 
 @Module({
   imports: [
@@ -26,8 +27,12 @@ import { RequestLoggerMiddleware } from './common/middleware/request-logger.midd
         username: configService.get<string>('DATABASE_USER', 'postgres'),
         password: configService.get<string>('DATABASE_PASSWORD', 'postgres'),
         database: configService.get<string>('DATABASE_NAME', 'ecommerce_db'),
+        ssl: {
+          rejectUnauthorized: false,
+        },
         autoLoadEntities: true,
         synchronize: true,
+        logging: true,
       }),
     }),
     AuthModule,
@@ -35,6 +40,7 @@ import { RequestLoggerMiddleware } from './common/middleware/request-logger.midd
     CategoriesModule,
     ProductsModule,
     OrdersModule,
+    ReviewsModule,
   ],
 })
 export class AppModule implements NestModule {

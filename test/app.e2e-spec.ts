@@ -16,9 +16,8 @@ describe('Ecommerce API (e2e)', () => {
   });
 
   it('/categories (GET) should return 200', () => {
-    return request(app.getHttpServer())
-      .get('/categories')
-      .expect(200);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    return request(app.getHttpServer()).get('/categories').expect(200);
   });
 
   afterAll(async () => {
