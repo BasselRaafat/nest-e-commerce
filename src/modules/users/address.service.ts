@@ -28,9 +28,6 @@ export class AddressService {
     if (existingDefaults.length > 0 && incomingDefaults.length === 1)
       throw new ConflictException('A default address already exists');
 
-    if (existingDefaults.length === 0 && incomingDefaults.length !== 1)
-      throw new ConflictException('Exactly one address must be set as default');
-
     const addresses = this.addressRepo.create(
       createAddressDto.addresses.map((add) => ({ ...add, userId: user.sub })),
     );
