@@ -9,6 +9,7 @@ import {
 import { UserRole } from '../../../common/enums/user-role.enum';
 import { Order } from '../../orders/entities/order.entity';
 import { Review } from 'src/modules/reviews/entities/review.entity';
+import { Address } from './address.entity';
 
 @Entity('users')
 export class User {
@@ -32,6 +33,9 @@ export class User {
 
   @OneToMany(() => Review, (review) => review.user)
   reviews: Review[];
+
+  @OneToMany(() => Address, (address) => address.user)
+  addresses: Address[];
 
   @CreateDateColumn()
   createdAt: Date;

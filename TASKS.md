@@ -2,9 +2,9 @@
 
 Build each task as a new module from scratch. Reuse patterns from existing modules (`categories`, `products`, `orders`, `auth`).
 
-## Scenario 1 - Reviews Module
+## Scenario 1 - Reviews Module **IMPLEMENTED**
 
-- [ ] Create `reviews` module where customers can review products.
+- [x] Create `reviews` module where customers can review products.
   - **Goal:** Practice new entity relations and guarded endpoints.
   - **Entities/Relations:** `Review` belongs to `User` and `Product`.
   - **Required fields:** `id`, `rating (1-5)`, `comment`, `userId`, `productId`, timestamps.
@@ -15,7 +15,7 @@ Build each task as a new module from scratch. Reuse patterns from existing modul
   - **Must use:** DTOs, validation pipe, `JwtAuthGuard`, `RolesGuard`.
   - **Test checklist:** customer creates review, public can list product reviews, unauthorized create blocked.
 
-## Scenario 2 - Coupons Module 
+## Scenario 2 - Coupons Module
 
 - [ ] Create `coupons` module for discount codes.
   - **Goal:** Practice admin-only CRUD + validation + expiration logic.
@@ -47,9 +47,9 @@ Build each task as a new module from scratch. Reuse patterns from existing modul
   - **Must use:** param pipe for `productId`, DTO if needed, auth guard.
   - **Test checklist:** add/list/remove works; duplicate add blocked.
 
-## Scenario 4 - Addresses Module
+## Scenario 4 - Addresses Module **IMPLEMENTED**
 
-- [ ] Create `addresses` module for shipping addresses per user.
+- [x] Create `addresses` module for shipping addresses per user.
   - **Goal:** Practice nested validation and one-to-many relation.
   - **Relation:** `User (1) -> (N) Address`.
   - **Fields:** `city`, `street`, `building`, `postalCode`, `country`, `isDefault`.
