@@ -45,4 +45,12 @@ export class UsersService {
       .update(userId, { hashedRefreshToken })
       .then(() => undefined);
   }
+  async exist(id: number) {
+    const isExist = await this.usersRepository.exists({
+      where: { id },
+    });
+    if (!isExist)
+      throw new NotFoundException(`User with id ${id} is not found`);
+    return isExist;
+  }
 }

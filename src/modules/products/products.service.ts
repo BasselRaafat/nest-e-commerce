@@ -64,4 +64,10 @@ export class ProductsService {
     await this.productsRepository.remove(product);
     return { message: 'Product removed' };
   }
+  async exist(id: number) {
+    const isExist = await this.productsRepository.exists({ where: { id } });
+    if (!isExist)
+      throw new NotFoundException(`Prodcut with id ${id} is not found`);
+    return true;
+  }
 }
